@@ -30,6 +30,8 @@ end
 
 template '/etc/mongod.conf' do
   source 'mongod.conf.erb'
+  variables(port: node['mongo']['port'],
+            ip_addresses: node['mongo']['ip_address'])
   notifies :restart, 'service[mongod]'
 end
 

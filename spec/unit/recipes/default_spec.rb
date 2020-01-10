@@ -31,10 +31,10 @@ describe 'mongo_cookbook::default' do
       expect(chef_run).to create_template "/lib/systemd/system/mongod.service"
     end
     it 'should enable mongodb' do
-      expect(chef_run).to enable_service("mongodb")
+      expect(chef_run).to enable_service("mongod")
     end
     it 'should start mongodb' do
-      expect(chef_run).to start_service("mongodb")
+      expect(chef_run).to start_service("mongod")
     end
 
     at_exit { ChefSpec::Coverage.report! }
